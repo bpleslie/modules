@@ -45,40 +45,8 @@
         <arguments>
             <argument name="metadata" xsi:type="array">
                 <item name="Brad\Dropship\Api\Data\SupplierInterface" xsi:type="array">
-                    <item name="entityTableName" xsi:type="string">dropship_supplier</item>
+                    <item name="entityTableName" xsi:type="string">supplier</item>
                     <item name="identifierField" xsi:type="string">id</item>
-                </item>
-                <item name="Brad\Dropship\Api\Data\BlockInterface" xsi:type="array">
-                    <item name="entityTableName" xsi:type="string">cms_block</item>
-                    <item name="identifierField" xsi:type="string">block_id</item>
-                </item>
-            </argument>
-        </arguments>
-    </type>
-    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
-        <arguments>
-            <argument name="extensionActions" xsi:type="array">
-                <item name="Brad\Dropship\Api\Data\SupplierInterface" xsi:type="array">
-                    <item name="read" xsi:type="array">
-                        <item name="storeReader" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Relation\Store\ReadHandler</item>
-                    </item>
-                    <item name="create" xsi:type="array">
-                        <item name="storeCreator" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Relation\Store\SaveHandler</item>
-                    </item>
-                    <item name="update" xsi:type="array">
-                        <item name="storeUpdater" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Relation\Store\SaveHandler</item>
-                    </item>
-                </item>
-                <item name="Brad\Dropship\Api\Data\BlockInterface" xsi:type="array">
-                    <item name="read" xsi:type="array">
-                        <item name="storeReader" xsi:type="string">Brad\Dropship\Model\ResourceModel\Block\Relation\Store\ReadHandler</item>
-                    </item>
-                    <item name="create" xsi:type="array">
-                        <item name="storeCreator" xsi:type="string">Brad\Dropship\Model\ResourceModel\Block\Relation\Store\SaveHandler</item>
-                    </item>
-                    <item name="update" xsi:type="array">
-                        <item name="storeUpdater" xsi:type="string">Brad\Dropship\Model\ResourceModel\Block\Relation\Store\SaveHandler</item>
-                    </item>
                 </item>
             </argument>
         </arguments>
