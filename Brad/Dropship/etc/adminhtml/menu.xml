@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Brad_Dropship::brad" title="Brad" translate="title" module="Brad_Dropship" sortOrder="40" resource="Brad_Dropship::brad"/>
+        <add id="Brad_Dropship::dropship" title="Dropship" translate="title" module="Brad_Dropship" sortOrder="10" parent="Brad_Dropship::brad" dependsOnModule="Brad_Dropship" resource="Brad_Dropship::dropship"/>
+        <add id="Brad_Dropship::supplier" title="Suppliers" translate="title" module="Brad_Dropship" sortOrder="0" parent="Brad_Dropship::dropship" action="dropship/supplier" resource="Brad_Dropship::supplier"/>
+    </menu>
+</config>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Brad\Dropship\Api\Data\SupplierInterface" type="Brad\Dropship\Model\Supplier" />
+    <preference for="Brad\Dropship\Api\Data\BlockInterface" type="Brad\Dropship\Model\Block" />
+    <preference for="Brad\Dropship\Api\BlockRepositoryInterface" type="Brad\Dropship\Model\BlockRepository" />
+    <preference for="Brad\Dropship\Api\SupplierRepositoryInterface" type="Brad\Dropship\Model\SupplierRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dropship_supplier_listing_data_source" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Brad\Dropship\Model\ResourceModel\Supplier\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">supplier</argument>
+            <argument name="eventPrefix" xsi:type="string">dropship_supplier_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">dropship_supplier_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier</argument>
+        </arguments>
+    </type>
+    <virtualType name="DropshipGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Brad\Dropship\Api\Data\SupplierInterface" xsi:type="string">Brad\Dropship\Api\SupplierRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Brad\Dropship\Api\Data\SupplierInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">dropship_supplier</item>
+                    <item name="identifierField" xsi:type="string">id</item>
+                </item>
+                <item name="Brad\Dropship\Api\Data\BlockInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">cms_block</item>
+                    <item name="identifierField" xsi:type="string">block_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Brad\Dropship\Api\Data\SupplierInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="storeReader" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Relation\Store\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="storeCreator" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Relation\Store\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="storeUpdater" xsi:type="string">Brad\Dropship\Model\ResourceModel\Supplier\Relation\Store\SaveHandler</item>
+                    </item>
+                </item>
+                <item name="Brad\Dropship\Api\Data\BlockInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="storeReader" xsi:type="string">Brad\Dropship\Model\ResourceModel\Block\Relation\Store\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="storeCreator" xsi:type="string">Brad\Dropship\Model\ResourceModel\Block\Relation\Store\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="storeUpdater" xsi:type="string">Brad\Dropship\Model\ResourceModel\Block\Relation\Store\SaveHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
