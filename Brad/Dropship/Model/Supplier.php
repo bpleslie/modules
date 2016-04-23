@@ -35,9 +35,6 @@ class Supplier extends AbstractModel implements SupplierInterface
      */
     public function load($id, $field = null)
     {
-        if ($id === null) {
-            return $this->noRouteSupplier();
-        }
         return parent::load($id, $field);
     }
 

@@ -6,7 +6,6 @@ use Brad\Dropship\Model\Supplier;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Brad\Dropship\Api\SupplierRepositoryInterface as SupplierRepository;
-use Brad\Dropship\Controller\Adminhtml\Supplier\PostDataProcessor;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Brad\Dropship\Api\Data\SupplierInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -35,12 +34,10 @@ class InlineEdit extends Action
      */
     public function __construct(
         Context $context,
-        PostDataProcessor $dataProcessor,
         SupplierRepository $supplierRepository,
         JsonFactory $jsonFactory
     ) {
         parent::__construct($context);
-        $this->dataProcessor = $dataProcessor;
         $this->supplierRepository = $supplierRepository;
         $this->jsonFactory = $jsonFactory;
     }
@@ -143,7 +140,7 @@ class InlineEdit extends Action
      * @param array $supplierData
      * @return $this
      */
-    public function setCmsSupplierData(Supplier $supplier, array $extendedSupplierData, array $supplierData)
+    public function setDropshipSupplierData(Supplier $supplier, array $extendedSupplierData, array $supplierData)
     {
         $supplier->setData(array_merge($supplier->getData(), $extendedSupplierData, $supplierData));
         return $this;
