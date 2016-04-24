@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Brad_Restrictions::restrictions" title="Restrictions" translate="title" module="Brad_Restrictions" sortOrder="10" parent="Brad_Base::brad" dependsOnModule="Brad_Restrictions" resource="Brad_Restrictions::restrictions"/>
+        <add id="Brad_Restrictions::rule" title="Rules" translate="title" module="Brad_Restrictions" sortOrder="0" parent="Brad_Restrictions::restrictions" action="restrictions/rule" resource="Brad_Restrictions::rule"/>
+    </menu>
+</config>
