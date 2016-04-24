@@ -59,13 +59,13 @@ class Rule extends AbstractModel implements RuleInterface
     }
 
     /**
-     * Get email
+     * Get restriction rule
      *
      * @return string
      */
-    public function getEmail()
+    public function getRestrictions()
     {
-        return $this->getData(self::EMAIL);
+        return $this->getData(self::RESTRICTIONS);
     }
 
     /**
@@ -91,13 +91,13 @@ class Rule extends AbstractModel implements RuleInterface
     }
 
     /**
-     * Set email
+     * Set restriction rule
      *
-     * @param string $email
+     * @param string $restrictions
      * @return \Brad\Restrictions\Api\Data\RuleInterface
      */
-    public function setEmail($email)
+    public function setRestrictions($restrictions)
     {
-        return $this->setData(self::EMAIL, $email);
+        return $this->setData(self::RESTRICTIONS, $restrictions);
     }
 }

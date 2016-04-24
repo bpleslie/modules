@@ -47,7 +47,7 @@ class Collection extends AbstractCollection
             $identifier = $item->getData('id');
 
             $data['value'] = $identifier;
-            $data['label'] = $item->getData('email');
+            $data['label'] = $item->getData('restrictions');
 
             if (in_array($identifier, $existingIdentifiers)) {
                 $data['value'] .= '|' . $item->getData('name');

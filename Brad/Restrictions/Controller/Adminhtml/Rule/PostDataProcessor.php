@@ -78,7 +78,7 @@ class PostDataProcessor
     {
         $requiredFields = [
             'name' => __('Rule Name'),
-            'email' => __('Rule Email')
+            'email' => __('Rule')
         ];
         $errorNo = true;
         foreach ($data as $field => $value) {
