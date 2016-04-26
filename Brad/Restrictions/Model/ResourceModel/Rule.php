@@ -79,7 +79,7 @@ class Rule extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('rule', 'id');
+        $this->_init('restrictions_rule', 'id');
     }
 
     /**
@@ -129,18 +129,18 @@ class Rule extends AbstractDb
     }
 
     /**
-     * Retrieves rule email from DB by passed id.
+     * Retrieves restriction rule from DB by passed id.
      *
      * @param string $id
      * @return string|false
      */
-    public function getRuleEmailById($id)
+    public function getRestrictionsById($id)
     {
         $connection = $this->getConnection();
         $entityMetadata = $this->metadataPool->getMetadata(RuleInterface::class);
 
         $select = $connection->select()
-            ->from($this->getMainTable(), 'email')
+            ->from($this->getMainTable(), 'restrictions')
             ->where($entityMetadata->getIdentifierField() . ' = :id');
 
         return $connection->fetchOne($select, ['id' => (int)$id]);

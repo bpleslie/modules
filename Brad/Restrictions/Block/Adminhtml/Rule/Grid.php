@@ -84,7 +84,7 @@ class Grid extends Extended
     protected function _prepareColumns()
     {
         $this->addColumn('name', ['header' => __('Name'), 'index' => 'name']);
-        $this->addColumn('email', ['header' => __('Email'), 'index' => 'email']);
+        $this->addColumn('restrictions', ['header' => __('Rule'), 'index' => 'restrictions']);
 
         return parent::_prepareColumns();
     }

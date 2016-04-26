@@ -48,7 +48,7 @@ class InstallSchema implements InstallSchemaInterface
             'Rule Restrictions'
         )->addIndex(
             $setup->getIdxName(
-                $installer->getTable('rule'),
+                $installer->getTable('restrictions_rule'),
                 ['name'],
                 AdapterInterface::INDEX_TYPE_FULLTEXT
             ),

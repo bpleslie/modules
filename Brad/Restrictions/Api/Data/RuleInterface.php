@@ -14,9 +14,9 @@ interface RuleInterface
     /**#@+
      * Constants for keys of data array. Identical to the name of the getter in snake case
      */
-    const ID    = 'id';
-    const NAME  = 'name';
-    const EMAIL = 'email';
+    const ID            = 'id';
+    const NAME          = 'name';
+    const RESTRICTIONS  = 'restrictions';
     /**#@-*/
 
     /**
@@ -34,11 +34,11 @@ interface RuleInterface
     public function getName();
 
     /**
-     * Get email
+     * Get restriction rule
      *
      * @return string|null
      */
-    public function getEmail();
+    public function getRestrictions();
 
     /**
      * Set ID
@@ -57,11 +57,11 @@ interface RuleInterface
     public function setName($name);
 
     /**
-     * Set email
+     * Set restriction rule
      *
-     * @param string $email
-     * @return \Magento\Cms\Api\Data\PageInterface
+     * @param string $restrictions
+     * @return \Brad\Restrictions\Api\Data\RuleInterface
      */
-    public function setEmail($email);
+    public function setRestrictions($restrictions);
 
 }
