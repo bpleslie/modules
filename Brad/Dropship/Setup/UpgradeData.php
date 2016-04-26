@@ -53,9 +53,9 @@ class UpgradeData implements UpgradeDataInterface
                 'backend' => '',
                 'frontend' => '',
                 'label' => 'Dropship Supplier',
-                'input' => '',
+                'input' => 'select',
                 'class' => '',
-                'source' => '',
+                'source' => '\Brad\Dropship\Model\Supplier\Source\Supplier',
                 'global' => Attribute::SCOPE_GLOBAL,
                 'visible' => true,
                 'required' => false,
@@ -67,7 +67,8 @@ class UpgradeData implements UpgradeDataInterface
                 'visible_on_front' => false,
                 'used_in_product_listing' => true,
                 'unique' => false,
-                'apply_to' => ''
+                'apply_to' => '',
+                'formElement' => 'select'
             ]
         );
     }
